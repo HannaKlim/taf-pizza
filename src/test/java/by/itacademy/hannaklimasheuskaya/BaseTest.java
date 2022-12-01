@@ -24,8 +24,8 @@ public class BaseTest {
         pizzaMarketPage.openPizzaMarketPage();
     }
 
-    @AfterEach
+   /* @AfterEach
     public void closeWebDiver() {
         driver.quit();
-    }
+    }*/
 }

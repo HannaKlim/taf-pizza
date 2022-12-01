@@ -25,8 +25,11 @@ public class PizzaMarketPage {
 
     public WebElement findAtNightButton() {
         By xPathAtNightButton = By.xpath("//*[@id=\"app\"]/div/div[4]/div[2]/button");
-        WebElement webElement = driver.findElement(xPathAtNightButton);
-        return webElement;
+       try {
+           WebElement webElement = driver.findElement(xPathAtNightButton);
+           return webElement;
+       } catch (Exception ignored) {}
+return null;
     }
 
     public PizzaMarketPage clickAtNightButton() {

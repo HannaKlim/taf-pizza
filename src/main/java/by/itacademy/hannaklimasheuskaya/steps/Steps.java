@@ -22,7 +22,17 @@ public class Steps {
                 .clickAddPizzaToBasketButton();
         return this;
     }
-
+    public Steps addPizzaFourSeasonsToBasketAtNonWorkingHours() {
+        PizzaMarketPage pizzaMarketPage = new PizzaMarketPage(driver);
+        pizzaMarketPage
+                .clickPizzaSectionLocator()
+                .clickSelectPizzaFourSeasonsButton()
+                .clickAtNightButton()
+                .clickSelectPizzaFourSeasonsButton()
+                .clickSelectPizzaSizeLocator()
+                .clickAddPizzaToBasketButton();
+        return this;
+    }
     public String checkPizzaForSeasonsInBasket() {
         PizzaMarketPage pizzaMarketPage = new PizzaMarketPage(driver);
         return pizzaMarketPage.clickBasketPageButton().getNameOfPizzaInBasket();

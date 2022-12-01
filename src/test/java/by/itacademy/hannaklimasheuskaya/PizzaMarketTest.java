@@ -10,9 +10,16 @@ public class PizzaMarketTest extends BaseTest {
     void testAddPizzaFourSeasonToBucketAndCheck() {
         Steps steps = new Steps(driver);
         PizzaMarketPage pizzaMarketPage = new PizzaMarketPage(driver);
-        String actualResult = steps.addPizzaFourSeasonsToBasketAtWorkingHours().checkPizzaForSeasonsInBasket();
-        String expectedResult = pizzaMarketPage.RESULT_NAME_OF_PIZZA_IN_BASKET;
+        if (pizzaMarketPage.findAtNightButton() != null) {
+            String actualResult = steps.addPizzaFourSeasonsToBasketAtNonWorkingHours().checkPizzaForSeasonsInBasket();
+            String expectedResult = pizzaMarketPage.RESULT_NAME_OF_PIZZA_IN_BASKET;
 
-        Assertions.assertEquals(expectedResult, actualResult);
+            Assertions.assertEquals(expectedResult, actualResult);
+        } else {
+            String actualResult = steps.addPizzaFourSeasonsToBasketAtWorkingHours().checkPizzaForSeasonsInBasket();
+            String expectedResult = pizzaMarketPage.RESULT_NAME_OF_PIZZA_IN_BASKET;
+
+            Assertions.assertEquals(expectedResult, actualResult);
+        }
     }
 }

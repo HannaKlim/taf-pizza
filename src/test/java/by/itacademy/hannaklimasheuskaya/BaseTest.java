@@ -11,6 +11,7 @@ import java.time.Duration;
 
 public class BaseTest {
     WebDriver driver;
+
     @BeforeEach
     public void setWebDriver() {
         WebDriverManager.chromedriver().setup();
@@ -21,8 +22,8 @@ public class BaseTest {
                 .maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         pizzaMarketPage.openPizzaMarketPage();
-        //pizzaMarketPage.clickAtNightButton();
     }
+
     @AfterEach
     public void closeWebDiver() {
         driver.quit();

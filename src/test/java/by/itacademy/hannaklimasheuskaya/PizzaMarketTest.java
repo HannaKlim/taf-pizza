@@ -8,9 +8,9 @@ import org.junit.jupiter.api.Test;
 public class PizzaMarketTest extends BaseTest {
     @Test
     void testAddPizzaFourSeasonToBucketAndCheck() {
-        Steps steps = new Steps();
+        Steps steps = new Steps(driver);
         PizzaMarketPage pizzaMarketPage = new PizzaMarketPage(driver);
-        String actualResult = steps.addPizzaFourSeasonsToBasket().checkPizzaForSeasonsInBasket();
+        String actualResult = steps.addPizzaFourSeasonsToBasketAtWorkingHours().checkPizzaForSeasonsInBasket();
         String expectedResult = pizzaMarketPage.RESULT_NAME_OF_PIZZA_IN_BASKET;
 
         Assertions.assertEquals(expectedResult, actualResult);

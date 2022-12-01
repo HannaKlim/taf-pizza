@@ -5,16 +5,25 @@ import org.openqa.selenium.WebDriver;
 
 public class Steps {
     WebDriver driver;
-    public Steps addPizzaFourSeasonsToBasket() {
+
+    public Steps(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public Steps addPizzaFourSeasonsToBasketAtWorkingHours() {
         PizzaMarketPage pizzaMarketPage = new PizzaMarketPage(driver);
         pizzaMarketPage
                 .clickPizzaSectionLocator()
+                .clickSelectPizzaFourSeasonsButton()
+                .clickPizzaDeliveryLocator()
+                .clickPizzaDeliveryConfirmationLocator()
                 .clickSelectPizzaFourSeasonsButton()
                 .clickSelectPizzaSizeLocator()
                 .clickAddPizzaToBasketButton();
         return this;
     }
-    public String checkPizzaForSeasonsInBasket(){
+
+    public String checkPizzaForSeasonsInBasket() {
         PizzaMarketPage pizzaMarketPage = new PizzaMarketPage(driver);
         return pizzaMarketPage.clickBasketPageButton().getNameOfPizzaInBasket();
     }
